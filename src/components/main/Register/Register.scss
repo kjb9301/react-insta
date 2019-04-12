@@ -1,4 +1,4 @@
-.login-form {
+.reg-form {
   display: flex;
   flex-direction: column;
 
@@ -7,7 +7,7 @@
     height: 40px;
     width: 247px;
 
-    &:not(.email-inp) {
+    &:not(.nickname-inp) {
       margin-top: 16px;
     }
   }
