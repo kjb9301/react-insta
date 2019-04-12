@@ -1,30 +1,64 @@
 import React, { Component } from 'react';
 import Login from 'components/main/Login';
 
+import {
+  PROJECT_NAME,
+  SERVER_URL
+} from "common/Constants";
+import FireAuthUser from "api/FireAuthUser";
+import RestAPI from 'common/RestAPI';
+
 class LoginContainer extends Component {
+  constructor(props){
+    super(props);
+
+    this.userManager = new FireAuthUser(
+      SERVER_URL,
+      PROJECT_NAME,
+    );
+  }
+
   state = {
-    loginInfo: {
-      email: '',
-      pwd: ''
-    }
+    email: '',
+    pwd: '',
+    isLoaded: false
   }
 
   handleChange = (e) => {
-    const { name, value } = e.target;
     this.setState({
-      loginInfo: {
-        [name]: value
-      }
+        [e.target.name]: e.target.value
     })
   }
 
-  handleLoginClick = () => {
+  handleLoginClick = async (email,pwd) => {
+    try {
+      const res = await this.userManager.login(email, pwd);
 
+      console.log('로그인 응답 값', res);
+    } catch (e) {
+      console.log('login err', e);
+    }
   }
+
+  // getRestAPI = async () => {
+  //   const res = await RestAPI();
+  //   console.log('res', res);
+  //   if (!res) return null;
+
+  //   this.setState({
+  //      isLoaded: true,
+  //   });
+  // }
+
+  // componentDidMount() {
+  //   this.getRestAPI();
+  // }
   
   render() {
     const { handleChange, handleLoginClick } = this;
-    const { loginInfo } = this.state;
+    const { email,pwd,isLoaded } = this.state;
+    const loginInfo = {email,pwd};
+    //if (!isLoaded) return <h1>loading....</h1>
 
     return (
       <Login loginInfo={loginInfo} handleChange={handleChange} handleLoginClick={handleLoginClick}/>
