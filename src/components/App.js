@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { MainPage, HomePage, SearchPage, UploadPage, LikePage, ProfilePage } from 'pages'
-
+import './App.scss';
 class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <Route exact path="/" component={MainPage}/>
-        <Route exact path="/home" component={HomePage}/>
-        <Route exact path="/search" component={SearchPage}/>
-        <Route exact path="/upload" component={UploadPage}/>
-        <Route exact path="/like" component={LikePage}/>
-        <Route exact path="/profile" component={ProfilePage}/>
+        <Switch>
+          <Route exact path="/" component={MainPage}/>
+          <Route path="/home" component={HomePage}/>
+          <Route path="/search" component={SearchPage}/>
+          <Route path="/upload" component={UploadPage}/>
+          <Route path="/like" component={LikePage}/>
+          <Route path="/profile" component={ProfilePage}/>
+        </Switch>
       </div>
     );
   }

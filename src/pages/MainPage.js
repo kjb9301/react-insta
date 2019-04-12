@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from 'components/common/Header';
+import PageTemplate from 'components/common/PageTemplate';
+import MainContainer from 'containers/MainContainer';
 
 const MainPage = () => {
   return (
-    <div>
-      <Header/>
-    </div>
+    <PageTemplate>
+      <MainContainer/>
+    </PageTemplate>
   );
 };
 
