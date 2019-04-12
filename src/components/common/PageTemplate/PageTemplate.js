@@ -5,9 +5,8 @@ import logo from 'images/bitmap.png';
 import './PageTemplate.scss';
 
 const PageTemplate = ({match, children}) => {
-
   return (
-    <div className="page-template">
+    <div className={match.path === '/'?"page-template":"page-template-L"}>
       <div className="header">
         <img src={logo}/>
       </div>

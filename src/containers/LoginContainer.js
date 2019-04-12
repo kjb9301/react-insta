@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Login from 'components/main/Login';
 
 import {
@@ -33,10 +34,15 @@ class LoginContainer extends Component {
   handleLoginClick = async (email,pwd) => {
     try {
       const res = await this.userManager.login(email, pwd);
-
       console.log('로그인 응답 값', res);
-    } catch (e) {
-      console.log('login err', e);
+      if(res.status === undefined){
+        const { history } = this.props;
+        history.push('/home');
+      }else{
+        alert("로그인에 실패하였습니다. 다시 시도하시기 바랍니다.");
+      }
+    } catch (err) {
+      console.log('Login Error', err);
     }
   }
 
@@ -66,4 +72,4 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+export default withRouter(LoginContainer);

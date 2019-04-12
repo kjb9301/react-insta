@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Register from 'components/main/Register';
 
 import {
@@ -44,10 +45,15 @@ class RegContainer extends Component {
       };
 
       const res = await this.userManager.signUp(bodyData);
-
       console.log('회원가입 응답 값', res);
-    } catch (e) {
-      console.log('err', e);
+      if(res.status === undefined){
+        const { history } = this.props;
+        history.push('/');
+      }else{
+        alert("회원가입에 실패하였습니다. 다시 시도해 주시기 바랍니다.");
+      }
+    } catch (err) {
+      console.log('Register Error', err);
     }
   }
 
@@ -61,4 +67,4 @@ class RegContainer extends Component {
   }
 }
 
-export default RegContainer;
+export default withRouter(RegContainer);
