@@ -1,10 +1,12 @@
 import React from 'react';
+import PageTemplate from 'components/common/PageTemplate';
+import ProfileContainer from 'containers/ProfileContainer';
 
 const ProfilePage = () => {
   return (
-    <div>
-      
-    </div>
+    <PageTemplate>
+      <ProfileContainer/>
+    </PageTemplate>
   );
 };
 
