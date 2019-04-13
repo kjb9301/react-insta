@@ -1,10 +1,12 @@
 import React from 'react';
+import PageTemplate from 'components/common/PageTemplate';
+import UploadContainer from 'containers/UploadContainer';
 
 const UploadPage = () => {
   return (
-    <div>
-      
-    </div>
+    <PageTemplate>
+      <UploadContainer/>
+    </PageTemplate>
   );
 };
 
