@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import home from 'images/home/home.png';
-import activity from 'images/like/activity.png';
+import activity from 'images/activity/activity.png';
 import search from 'images/search/search.png';
 import upload from 'images/upload/photo.png';
 import profile from 'images/profile/profile.png';
