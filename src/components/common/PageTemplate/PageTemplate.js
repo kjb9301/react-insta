@@ -1,21 +1,32 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Fragment } from 'react';
 import Footer from 'components/common/Footer';
-import logo from 'images/bitmap.png';
+import instaLogo from 'images/bitmap.png';
 import './PageTemplate.scss';
 
-const PageTemplate = ({match, children}) => {
+const PageTemplate = ({children}) => {
+  const isStorage = sessionStorage.length !== 0 ? true : false;
   return (
-    <div className={match.path === '/'?"page-template":"page-template-L"}>
-      <div className="header">
-        <img src={logo}/>
-      </div>
-      <section>
-        {children}
-      </section>
-      {match.path === '/'?null:<Footer/>}
+    <div className="page-template">
+    {
+      !isStorage?
+      <Fragment>
+        <div className="header">
+          <img src={instaLogo}/>
+        </div>
+        <section>
+          {children}
+        </section>
+      </Fragment>
+      :
+      <Fragment>
+        <section>
+          {children}
+        </section>
+        <Footer/>
+      </Fragment>
+    }
     </div>
   );
 };
 
-export default withRouter(PageTemplate);
+export default PageTemplate;

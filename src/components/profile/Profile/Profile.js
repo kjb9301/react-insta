@@ -1,11 +1,11 @@
 import React from 'react';
 import './Profile.scss'
 
-const Profile = () => {
+const Profile = ({handleLogout}) => {
   return (
     <div className="profile-wrapper">
       <div className="profile-header">
-        <div className="header-left">LogOut</div>
+        <div className="header-left"><span onClick={handleLogout}>LogOut</span></div>
         <div className="header-center">Profile</div>
         <div className="header-right">Done</div>
       </div>
