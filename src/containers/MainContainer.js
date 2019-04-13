@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Main from 'components/main/Main';
 import LoginContainer from 'containers/LoginContainer';
 import RegContainer from 'containers/RegContainer';
 
 class MainContainer extends Component {
-  state = {currentState: ''}
 
   hadleLoginClick = () => {
-    this.setState({
-      currentState: 'login'
-    })
+    const { history } = this.props;
+    history.push('/login');
   }
 
   hadleRegClick = () => {
-    this.setState({
-      currentState: 'register'
-    })
+    const { history } = this.props;
+    history.push('/register');
   }
 
   render() {
     const { hadleLoginClick, hadleRegClick } = this;
-    const { currentState } = this.state;
+
     return (
-      <>
-        {
-          currentState === ''?
-          <Main hadleLoginClick={hadleLoginClick} hadleRegClick={hadleRegClick}/>
-        :
-        <>
-        {currentState === 'login'?<LoginContainer/>:<RegContainer/>}
-        </>
-        }
-      </>
+      <Main hadleLoginClick={hadleLoginClick} hadleRegClick={hadleRegClick}/>
     );
   }
 }
 
-export default MainContainer;
+export default withRouter(MainContainer);

@@ -23,11 +23,11 @@ class HomeContainer extends Component {
     postList: []
   }
 
-  // getRestAPI = async () => {
-  //   const res = await RestAPI();
-  //   console.log('res', res);
-  //   if (!res) return null;
-  // }
+  getRestAPI = async () => {
+    const res = await RestAPI();
+    console.log('res', res);
+    if (!res) return null;
+  }
 
   getPost = async () => {
     const isStorage = storageAvailable();
@@ -40,7 +40,7 @@ class HomeContainer extends Component {
   }
 
   componentDidMount(){
-    //this.getRestAPI();
+    this.getRestAPI();
     this.getPost();
   }
 
