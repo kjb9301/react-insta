@@ -39,10 +39,6 @@ class HomeContainer extends Component {
   }
 
   getComment = (id) => {
-    // const api = getItem('RestAPI');
-    // const query = `?pid=${id}`;
-    // const res = await Fetch(api.post_get_comment,query);
-    // console.log(res)
     const { history } = this.props;
     history.push(`/comment/${id}`)
   }

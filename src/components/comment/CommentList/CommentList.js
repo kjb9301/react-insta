@@ -16,7 +16,9 @@ const CommentList = ({commentList,handleBack}) => {
         <div className="header-right"></div>
       </div>
       <div className="comment-content">
-        {comments}
+        <div className="content-wrapper">
+          {comments}
+        </div>
       </div>
       <div className="comment-footer">
         <div className="footer-left">

@@ -15,6 +15,20 @@
       border-radius: 20px;
       background-color: #e0e0e0;
     }
+
+    @media (min-width:768px){
+      .user-img {
+        width: 50%;
+        border-radius: 30px;
+      }
+    }
+
+    @media (min-width:1200px){
+      .user-img {
+        width: 40%;
+        border-radius: 40px;
+      }
+    }
   }
 
   .comment-text {
@@ -47,5 +61,17 @@
         color: #aaaaaa;
       }
     }
+  }
+}
+
+@media (min-width:768px){
+  .comment-box {
+    height: 90px;
+  }
+}
+
+@media (min-width:1200px){
+  .comment-box {
+    height: 100px;
   }
 }
