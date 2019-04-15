@@ -10,11 +10,35 @@
   }
 
   .login-btn {
-    border: 1px solid black;
+    border: 1px solid #2c2c2c;
+    color: #2c2c2c;
   }
 
   .reg-btn {
-    border: 1px solid blue;
+    border: 1px solid #4a90e2;
+    color: #4a90e2;
     margin-top: 16px;
+  }
+
+  @media (min-width:768px){
+    button {
+      height: 50px;
+      width: 300px;
+    }
+
+    .reg-btn {
+      margin-top: 25px;
+    }
+  }
+
+  @media (min-width:1200px){
+    button {
+      height: 55px;
+      width: 500px;
+    }
+
+    .reg-btn {
+      margin-top: 45px;
+    }
   }
 }
