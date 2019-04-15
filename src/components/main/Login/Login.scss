@@ -6,15 +6,37 @@
     border-radius: 20px;
     height: 40px;
     width: 247px;
+    border: 1px solid #aaaaaa;
 
     &:not(.email-inp) {
       margin-top: 16px;
     }
   }
 
-  .reg-btn {
+  @media (min-width:768px){
+    input {
+      width: 300px;
+  
+      &:not(.email-inp) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @media (min-width:1200px){
+    input {
+      height: 50px;
+      width: 500px;
+  
+      &:not(.email-inp) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .login-btn {
     border: none;
-    background-color: gray;
+    background-color: #2c2c2c;
     color: white;
   }
 }

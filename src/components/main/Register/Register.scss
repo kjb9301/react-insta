@@ -6,15 +6,37 @@
     border-radius: 20px;
     height: 40px;
     width: 247px;
+    border: 1px solid #aaaaaa;
 
     &:not(.nickname-inp) {
       margin-top: 16px;
     }
   }
 
+  @media (min-width:768px){
+    input {
+      width: 350px;
+  
+      &:not(.nickname-inp) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @media (min-width:1200px){
+    input {
+      width: 500px;
+      height: 45px;
+  
+      &:not(.nickname-inp) {
+        margin-top: 25px;
+      }
+    }
+  }
+
   .reg-btn {
     border: none;
-    background-color: gray;
+    background-color: #4a90e2;
     color: white;
   }
 }
