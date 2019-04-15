@@ -25,6 +25,12 @@
         border-radius: 10px;
         background-color: #eaeaea;
       }
+
+      @media (min-width:1200px){
+        input {
+          width: 60%;
+        }
+      }
     }
 
     .header-right {
