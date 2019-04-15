@@ -1,11 +1,11 @@
 import React from 'react';
 
-const LikePage = () => {
+const Follow = () => {
   return (
     <div>
-      
+      Follow Page
     </div>
   );
 };
 
-export default LikePage;
+export default Follow;
