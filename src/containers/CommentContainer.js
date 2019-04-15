@@ -23,14 +23,20 @@ class CommentContainer extends Component {
     })
   }
 
+  handleBack = () => {
+    const { history } = this.props;
+    history.goBack();
+  }
+
   componentDidMount(){
     this.getComment();
   }
 
   render() {
     const { commentList } = this.state;
+    const { handleBack } = this;
     return (
-      <CommentList commentList={commentList}/>
+      <CommentList commentList={commentList} handleBack={handleBack}/>
     );
   }
 }

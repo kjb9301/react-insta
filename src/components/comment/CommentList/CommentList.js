@@ -3,7 +3,7 @@ import './CommentList.scss';
 import backImg from 'images/back.png';
 import CommentItem from 'components/comment/CommentItem';
 
-const CommentList = ({commentList}) => {
+const CommentList = ({commentList,handleBack}) => {
   const comments = commentList.map(comment => {
     return <CommentItem key={comment.pid_post_cmt} comment={comment}/>
   })
@@ -11,7 +11,7 @@ const CommentList = ({commentList}) => {
   return (
     <div className="comment-wrapper">
       <div className="comment-header">
-        <div className="header-left"><span><img src={backImg} alt="back"/></span></div>
+        <div className="header-left"><span onClick={handleBack}><img src={backImg} alt="back"/></span></div>
         <div className="header-center"><span>댓글</span></div>
         <div className="header-right"></div>
       </div>
