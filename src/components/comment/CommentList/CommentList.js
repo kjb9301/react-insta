@@ -1,12 +1,31 @@
 import React from 'react';
 import './CommentList.scss';
+import backImg from 'images/back.png';
+import CommentItem from 'components/comment/CommentItem';
 
 const CommentList = ({commentList}) => {
-  console.log(commentList)
+  const comments = commentList.map(comment => {
+    return <CommentItem key={comment.pid_post_cmt} comment={comment}/>
+  })
+
   return (
     <div className="comment-wrapper">
-      <div className="comment-header"></div>
-      <div className="comment-content"></div>
+      <div className="comment-header">
+        <div className="header-left"><span><img src={backImg} alt="back"/></span></div>
+        <div className="header-center"><span>댓글</span></div>
+        <div className="header-right"></div>
+      </div>
+      <div className="comment-content">
+        {comments}
+      </div>
+      <div className="comment-footer">
+        <div className="footer-left">
+          <input type="text" name="comment" placeholder="댓글 달기..."/>
+        </div>
+        <div className="footer-right">
+          <span>send</span>
+        </div>
+      </div>
     </div>
   );
 };

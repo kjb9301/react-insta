@@ -199,6 +199,16 @@
       color: gray;
     }
 
+    .item-comment-btn {
+      span {
+        cursor: pointer;
+
+        &:hover {
+          color: aqua;
+        }
+      }
+    }
+
     .item-tag {
       color: rgb(25, 119, 119);
     }

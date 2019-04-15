@@ -4,9 +4,7 @@ import CommentContainer from 'containers/CommentContainer';
 
 const CommentPage = () => {
   return (
-    <PageTemplate>
-      <CommentContainer/>
-    </PageTemplate>
+    <CommentContainer/>
   );
 };
 

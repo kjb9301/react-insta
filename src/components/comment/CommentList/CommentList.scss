@@ -6,11 +6,67 @@
 
   .comment-header {
     flex: .15;
-    border: 1px solid red;
+    display: flex;
+    border-bottom: 1px solid gray;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-left {
+      flex: .15;
+    }
+
+    .header-center {
+      flex: 1;
+
+      span {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    .header-right {
+      flex: .15;
+    }
   }
 
   .comment-content {
     flex: 1;
-    border: 1px solid blue;
+    background-color: #f6f6f6;
+  }
+
+  .comment-footer {
+    flex: .15;
+    display: flex;
+    border-top: 1px solid gray;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-left {
+      flex: 1;
+
+      input {
+        width: 80%;
+        height: 30px;
+        border-radius: 20px;
+        border: 1px solid #e0e0e0;
+      }
+    }
+
+    .footer-right {
+      flex: .2;
+
+      span {
+        color: #4a90e2;
+        font-size: 14px;
+      }
+    }
   }
 }
