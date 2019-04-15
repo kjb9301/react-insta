@@ -1,10 +1,8 @@
 import React from 'react';
 import './PostItem.scss';
 import item_img from 'images/item.jpg';
-import like from 'images/like/like.png';
-import comment from 'images/comment/comments.png';
 
-const PostItem = ({post}) => {
+const PostItem = ({post,getComment}) => {
   console.log(post)
   const {desc, tag_string, title, uri_json} = post;
   console.log(JSON.parse(uri_json).location)
@@ -37,7 +35,7 @@ const PostItem = ({post}) => {
         <div className="item-title">{title}</div>
         <div className="item-desc">{desc}</div>
         <div className="item-tag">{tag_string}</div>
-        <div className="item-comment-btn"><span>view all comments</span></div>
+        <div className="item-comment-btn"><span onClick={() => getComment(post.pid_post)}>view all comments</span></div>
       </div>
     </div>
   );

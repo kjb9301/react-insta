@@ -1,0 +1,16 @@
+.comment-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .comment-header {
+    flex: .15;
+    border: 1px solid red;
+  }
+
+  .comment-content {
+    flex: 1;
+    border: 1px solid blue;
+  }
+}

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import {
-  PROJECT_NAME,
-  SERVER_URL
-} from "common/Constants";
+import { withRouter } from 'react-router-dom';
+import { PROJECT_NAME, SERVER_URL } from "common/Constants";
 import FireAuthUser from "api/FireAuthUser";
 import RestAPI from 'common/RestAPI';
 import Fetch from 'common/Fetch';
-import PostList from 'components/home/PostList';
 import { storageAvailable, getItem } from 'common/StorageUtils';
+
+import PostList from 'components/home/PostList';
 
 class HomeContainer extends Component {
   constructor(props){
@@ -39,6 +38,15 @@ class HomeContainer extends Component {
     })
   }
 
+  getComment = (id) => {
+    // const api = getItem('RestAPI');
+    // const query = `?pid=${id}`;
+    // const res = await Fetch(api.post_get_comment,query);
+    // console.log(res)
+    const { history } = this.props;
+    history.push(`/comment/${id}`)
+  }
+
   componentDidMount(){
     this.getRestAPI();
     this.getPost();
@@ -46,10 +54,11 @@ class HomeContainer extends Component {
 
   render() {
     const { postList } = this.state;
+    const { getComment } = this;
     return (
-      <PostList postList={postList}/>
+      <PostList postList={postList} getComment={getComment}/>
     );
   }
 }
 
-export default HomeContainer;
+export default withRouter(HomeContainer);

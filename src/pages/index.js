@@ -6,3 +6,4 @@ export { default as SearchPage } from './SearchPage';
 export { default as UploadPage } from './UploadPage';
 export { default as FollowPage } from './FollowPage';
 export { default as ProfilePage } from './ProfilePage';
+export { default as CommentPage } from './CommentPage';

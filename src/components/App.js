@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { MainPage, LoginPage, RegPage, HomePage, SearchPage, UploadPage, FollowPage, ProfilePage } from 'pages'
+import { MainPage, LoginPage, RegPage, HomePage, SearchPage, UploadPage, FollowPage, ProfilePage, CommentPage } from 'pages'
 import './App.scss';
 class App extends Component {
   render() {
@@ -15,6 +15,7 @@ class App extends Component {
           <Route path="/upload" component={UploadPage}/>
           <Route path="/activity" component={FollowPage}/>
           <Route path="/profile" component={ProfilePage}/>
+          <Route path="/comment/:id" component={CommentPage}/>
         </Switch>
       </div>
     );

@@ -2,9 +2,9 @@ import React from 'react';
 import './PostList.scss';
 import PostItem from '../PostItem';
 
-const PostList = ({postList}) => {
+const PostList = ({postList,getComment}) => {
   const posts = postList.map(post => {
-    return <PostItem key={post.pid_post} post={post}/>
+    return <PostItem key={post.pid_post} post={post} getComment={getComment}/>
   })
   return (
     <div className="home-wrapper">
