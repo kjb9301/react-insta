@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostItem.scss';
 import item_img from 'images/item.jpg';
-import like from 'images/like/like-2.png';
+import like from 'images/like/like.png';
 import comment from 'images/comment/comments.png';
 
 const PostItem = ({post}) => {
@@ -31,8 +31,8 @@ const PostItem = ({post}) => {
       </div>
       <div className="item-content">
         <div className="item-icon">
-          <div className="icon-like"><img src={like}/></div>
-          <div className="icon-comment"><img src={comment}/></div>
+          <div className="icon-like"></div>
+          <div className="icon-comment"></div>
         </div>
         <div className="item-title">{title}</div>
         <div className="item-desc">{desc}</div>

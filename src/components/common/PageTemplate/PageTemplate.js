@@ -11,7 +11,7 @@ const PageTemplate = ({children}) => {
       !isStorage?
       <Fragment>
         <div className="header">
-          <img src={instaLogo}/>
+          
         </div>
         <section>
           {children}

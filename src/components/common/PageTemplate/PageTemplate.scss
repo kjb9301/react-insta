@@ -9,6 +9,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../../../images/bitmap.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @media (min-width:768px){
+    .header {
+      background-image: url(../../../images/bitmap@2x.png);
+    }
+  }
+
+  @media (min-width:1200px){
+    .header {
+      background-image: url(../../../images/bitmap@3x.png);
+    }
   }
 
   section {

@@ -26,6 +26,22 @@
       }
     }
 
+    @media (min-width:768px){
+      .item-header-left {
+        flex: .2;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+    }
+
+    @media (min-width:1200px){
+      .item-header-left {
+        flex: .1;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
     .item-header-center {
       flex: 2;
       display: flex;
@@ -40,6 +56,16 @@
         flex: 1;
         font-size: 12px;
         color: gray;
+      }
+
+      @media (min-width:1200px){
+        .item-header-title {
+          font-size: 18px;
+        }
+
+        .item-header-place {
+          font-size: 15px;
+        }
       }
     }
 
@@ -69,6 +95,18 @@
         max-height: 100%;
       }
     }
+
+    @media (min-width:768px){
+      .image {
+        height: 350px;
+      }
+    }
+
+    @media (min-width:1200px){
+      .image {
+        height: 500px;
+      }
+    }
   }
 
   .item-content {
@@ -84,17 +122,77 @@
       font-size: 14px;
       line-height: 1.5rem;
     }
+
+    @media (min-width:768px){
+      &:not(.icon-like, .icon-comment) {
+        padding: 0 25px 0 25px;
+        font-size: 16px;
+        line-height: 2rem;
+      }
+    }
+
+    @media (min-width:1200px){
+      &:not(.icon-like, .icon-comment) {
+        padding: 0 40px 0 40px;
+        font-size: 20px;
+        line-height: 3rem;
+      }
+    }
     
     .item-icon {
       display: flex;
 
       div {
-        padding-right: 5px;
+        width: 25px;
+        height: 25px;
+      }
+
+      .icon-like {
+        background-image: url(../../../images/like/like.png);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .icon-comment {
+        background-image: url(../../../images/comment/comments.png);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      @media (min-width:1200px){
+        div {
+          width: 50px;
+          height: 50px;
+        }
+  
+        .icon-like {
+          background-image: url(../../../images/like/like@2x.png);
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+  
+        .icon-comment {
+          background-image: url(../../../images/comment/comments@2x.png);
+          background-position: center;
+          background-repeat: no-repeat;
+        }
       }
     }
 
     .item-title {
       font-size: 15px;
+    }
+
+    @media (min-width:768px){
+      .item-title {
+        font-size: 20px;
+      }
+    }
+
+    @media (min-width:1200px){
+      .item-title {
+        font-size: 23px;
+      }
     }
 
     .item-desc, .item-comment-btn {
