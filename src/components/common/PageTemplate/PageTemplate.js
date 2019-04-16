@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Footer from 'components/common/Footer';
-import instaLogo from 'images/bitmap.png';
 import './PageTemplate.scss';
 
 const PageTemplate = ({children}) => {

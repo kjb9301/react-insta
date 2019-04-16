@@ -28,6 +28,9 @@ class UploadContainer extends Component {
   }
 
   insertPost = async(desc,tag) => {
+    const isStorage = storageAvailable();
+    if(!isStorage) return null;
+    
     const bodyData = {
       desc: desc,
       tag: tag
@@ -43,7 +46,12 @@ class UploadContainer extends Component {
     const { desc, tag } = this.state;
 
     return (
-      <Upload desc={desc} tag={tag} handleChange={handleChange} insertPost={insertPost}/>
+      <Upload
+        desc={desc}
+        tag={tag}
+        handleChange={handleChange}
+        insertPost={insertPost}
+      />
     );
   }
 }

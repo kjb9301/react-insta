@@ -15,6 +15,7 @@ class MainContainer extends Component {
   }
 
   render() {
+    console.log("MainContainer render")
     const { hadleLoginClick, hadleRegClick } = this;
 
     return (

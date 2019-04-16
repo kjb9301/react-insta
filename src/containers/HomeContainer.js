@@ -24,7 +24,6 @@ class HomeContainer extends Component {
 
   getRestAPI = async () => {
     const res = await RestAPI();
-    console.log('res', res);
     if (!res) return null;
   }
 
@@ -32,9 +31,9 @@ class HomeContainer extends Component {
     const isStorage = storageAvailable();
     if(!isStorage) return null;
     const api = getItem('RestAPI');
-    const res = await Fetch(api.post_get_my);
+    const postData = await Fetch(api.post_get_my);
     this.setState({
-      postList: res
+      postList: postData
     })
   }
 

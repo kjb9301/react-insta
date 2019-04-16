@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import Fetch from 'common/Fetch';
 import { storageAvailable, getItem } from 'common/StorageUtils';
 
@@ -13,6 +12,8 @@ class CommentContainer extends Component {
   }
 
   getComment = async() => {
+    const isStorage = storageAvailable();
+    if(!isStorage) return null;
     const { match } = this.props;
     const api = getItem('RestAPI');
     const query = `?pid=${match.params.id}`;
@@ -36,7 +37,10 @@ class CommentContainer extends Component {
     const { commentList } = this.state;
     const { handleBack } = this;
     return (
-      <CommentList commentList={commentList} handleBack={handleBack}/>
+      <CommentList
+        commentList={commentList}
+        handleBack={handleBack}
+      />
     );
   }
 }

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Login from 'components/main/Login';
-
-import {
-  PROJECT_NAME,
-  SERVER_URL
-} from "common/Constants";
+import { PROJECT_NAME, SERVER_URL } from "common/Constants";
 import FireAuthUser from "api/FireAuthUser";
 import RestAPI from 'common/RestAPI';
+
+import Login from 'components/main/Login';
 
 class LoginContainer extends Component {
   constructor(props){
@@ -34,7 +31,6 @@ class LoginContainer extends Component {
   handleLoginClick = async (email,pwd) => {
     try {
       const res = await this.userManager.login(email, pwd);
-      console.log('로그인 응답 값', res);
       if(res.status === undefined){
         const { history } = this.props;
         history.push('/home');
@@ -46,28 +42,32 @@ class LoginContainer extends Component {
     }
   }
 
-  // getRestAPI = async () => {
-  //   const res = await RestAPI();
-  //   console.log('res', res);
-  //   if (!res) return null;
+  getRestAPI = async () => {
+    const res = await RestAPI();
+    if(!res) return null;
 
-  //   this.setState({
-  //      isLoaded: true,
-  //   });
-  // }
+    this.setState({
+       isLoaded: true,
+    });
+  }
 
-  // componentDidMount() {
-  //   this.getRestAPI();
-  // }
+  componentDidMount() {
+    this.getRestAPI();
+  }
   
   render() {
+    console.log("LoginContainer render")
     const { handleChange, handleLoginClick } = this;
     const { email,pwd,isLoaded } = this.state;
     const loginInfo = {email,pwd};
-    //if (!isLoaded) return <h1>loading....</h1>
+    if(!isLoaded) return <h1>loading....</h1>;
 
     return (
-      <Login loginInfo={loginInfo} handleChange={handleChange} handleLoginClick={handleLoginClick}/>
+      <Login
+        loginInfo={loginInfo}
+        handleChange={handleChange}
+        handleLoginClick={handleLoginClick}
+      />
     );
   }
 }

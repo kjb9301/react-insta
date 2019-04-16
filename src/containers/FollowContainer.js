@@ -22,7 +22,11 @@ class FollowContainer extends Component {
     const { handleFollowing, handleFollower } = this;
     const { followTF } = this.state;
     return (
-      <Follow followTF={followTF} handleFollowing={handleFollowing} handleFollower={handleFollower}/>
+      <Follow
+        followTF={followTF}
+        handleFollowing={handleFollowing}
+        handleFollower={handleFollower}
+      />
     );
   }
 }

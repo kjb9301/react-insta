@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Register from 'components/main/Register';
-
-import {
-  PROJECT_NAME,
-  SERVER_URL
-} from "common/Constants";
+import { PROJECT_NAME, SERVER_URL } from "common/Constants";
 import FireAuthUser from "api/FireAuthUser";
+
+import Register from 'components/main/Register';
 
 class RegContainer extends Component {
   constructor(props){
@@ -45,10 +42,9 @@ class RegContainer extends Component {
       };
 
       const res = await this.userManager.signUp(bodyData);
-      console.log('회원가입 응답 값', res);
       if(res.status === undefined){
         const { history } = this.props;
-        history.push('/');
+        history.push('/login');
       }else{
         alert("회원가입에 실패하였습니다. 다시 시도해 주시기 바랍니다.");
       }
@@ -58,11 +54,16 @@ class RegContainer extends Component {
   }
 
   render() {
+    console.log("regContainer render")
     const { handleChange, handleRegClick } = this;
     const { nickname, email, pwd } = this.state;
     const regInfo = {nickname,email,pwd};
     return (
-      <Register regInfo={regInfo} handleChange={handleChange} handleRegClick={handleRegClick}/>
+      <Register
+        regInfo={regInfo}
+        handleChange={handleChange}
+        handleRegClick={handleRegClick}
+      />
     );
   }
 }

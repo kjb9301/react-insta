@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import FollowingList from 'components/activity/FollowingList';
-
 import Fetch from 'common/Fetch';
 import { storageAvailable, getItem } from 'common/StorageUtils';
+
+import FollowingList from 'components/activity/FollowingList';
 
 class FollowingContainer extends Component {
 
@@ -11,9 +11,10 @@ class FollowingContainer extends Component {
   }
 
   getFollowing = async() => {
+    const isStorage = storageAvailable();
+    if(!isStorage) return null;
     const api = getItem('RestAPI');
     const followingData = await Fetch(api.follow_get_my);
-    console.log(followingData)
     this.setState({
       followingList: followingData
     })
