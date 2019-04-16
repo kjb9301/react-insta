@@ -1,0 +1,53 @@
+.following-box {
+  border: 1px solid gray;
+  height: 50px;
+  margin: 1px;
+  display: flex;
+
+  .following-left, .following-center, .following-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .following-left {
+    flex: .3;
+
+    .following-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e0e0e0;
+    }
+  }
+
+  .following-center {
+    flex: 1;
+
+    .following-user {
+      width: 90%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .following-right {
+    flex: .5;
+
+    .following-btn {
+      width: 80%;
+      height: 50%;
+
+      button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+        background: none;
+        background-color: rgb(47, 172, 109);
+        color: white;
+      }
+    }
+  }
+}

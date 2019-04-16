@@ -1,0 +1,33 @@
+.follow-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .follow-header {
+    flex: .15;
+    display: flex;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .following-header {
+      flex: 1;
+    }
+
+    .follower-header {
+      flex: 1;
+    }
+  }
+
+  .follow-content {
+    flex: 1;
+  }
+}
