@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { PROJECT_NAME, SERVER_URL } from "common/Constants";
 import FireAuthUser from "api/FireAuthUser";
-import RestAPI from 'common/RestAPI';
 import Fetch from 'common/Fetch';
 import { storageAvailable, getItem } from 'common/StorageUtils';
 
@@ -22,11 +21,6 @@ class HomeContainer extends Component {
     postList: []
   }
 
-  getRestAPI = async () => {
-    const res = await RestAPI();
-    if (!res) return null;
-  }
-
   getPost = async () => {
     const isStorage = storageAvailable();
     if(!isStorage) return null;
@@ -43,7 +37,6 @@ class HomeContainer extends Component {
   }
 
   componentDidMount(){
-    this.getRestAPI();
     this.getPost();
   }
 

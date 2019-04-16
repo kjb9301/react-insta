@@ -15,11 +15,12 @@ class MainContainer extends Component {
   }
 
   render() {
-    console.log("MainContainer render")
     const { hadleLoginClick, hadleRegClick } = this;
-
     return (
-      <Main hadleLoginClick={hadleLoginClick} hadleRegClick={hadleRegClick}/>
+      <Main
+        hadleLoginClick={hadleLoginClick}
+        hadleRegClick={hadleRegClick}
+      />
     );
   }
 }

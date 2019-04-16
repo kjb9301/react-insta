@@ -3,7 +3,7 @@ import Footer from 'components/common/Footer';
 import './PageTemplate.scss';
 
 const PageTemplate = ({children}) => {
-  const isStorage = sessionStorage.length !== 0 ? true : false;
+  const isStorage = sessionStorage.userData? true : false;
   return (
     <div className="page-template">
     {

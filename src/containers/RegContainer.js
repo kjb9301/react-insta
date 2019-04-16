@@ -43,6 +43,7 @@ class RegContainer extends Component {
 
       const res = await this.userManager.signUp(bodyData);
       if(res.status === undefined){
+        alert("회원가입 되었습니다.");
         const { history } = this.props;
         history.push('/login');
       }else{
@@ -54,7 +55,6 @@ class RegContainer extends Component {
   }
 
   render() {
-    console.log("regContainer render")
     const { handleChange, handleRegClick } = this;
     const { nickname, email, pwd } = this.state;
     const regInfo = {nickname,email,pwd};

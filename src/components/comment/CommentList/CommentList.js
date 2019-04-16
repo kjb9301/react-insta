@@ -4,12 +4,13 @@ import backImg from 'images/back.png';
 import CommentItem from 'components/comment/CommentItem';
 
 const CommentList = ({commentList,handleBack}) => {
+  console.log(commentList)
   const comments = commentList.map(comment => {
-    return <CommentItem
+    return (<CommentItem
               key={comment.pid_post_cmt}
               comment={comment}
             />
-  })
+  )})
   return (
     <div className="comment-wrapper">
       <div className="comment-header">

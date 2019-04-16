@@ -56,10 +56,10 @@ class LoginContainer extends Component {
   }
   
   render() {
-    console.log("LoginContainer render")
     const { handleChange, handleLoginClick } = this;
     const { email,pwd,isLoaded } = this.state;
     const loginInfo = {email,pwd};
+    
     if(!isLoaded) return <h1>loading....</h1>;
 
     return (

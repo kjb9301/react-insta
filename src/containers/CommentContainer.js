@@ -18,7 +18,7 @@ class CommentContainer extends Component {
     const api = getItem('RestAPI');
     const query = `?pid=${match.params.id}`;
     const commentData = await Fetch(api.post_get_comment,query);
-    
+    if(commentData.post_cmt.code === "data/no_data") return null;
     this.setState({
       commentList: commentData.post_cmt
     })
@@ -36,6 +36,7 @@ class CommentContainer extends Component {
   render() {
     const { commentList } = this.state;
     const { handleBack } = this;
+
     return (
       <CommentList
         commentList={commentList}
