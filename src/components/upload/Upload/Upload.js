@@ -1,13 +1,13 @@
 import React from 'react';
 import './Upload.scss';
 
-const Upload = ({desc,tag,handleChange,insertPost}) => {
+const Upload = ({desc,tag,handleChange,uploadPost}) => {
   return (
     <div className="upload-wrapper">
       <div className="upload-header">
         <div className="header-left"></div>
         <div className="header-center">Upload</div>
-        <div className="header-right" onClick={() => insertPost(desc,tag)}>Done</div>
+        <div className="header-right" onClick={() => uploadPost(desc,tag)}>Done</div>
       </div>
       <div className="upload-content">
         <div className="content-box">

@@ -25,7 +25,10 @@ class HomeContainer extends Component {
     const isStorage = storageAvailable();
     if(!isStorage) return null;
     const api = getItem('RestAPI');
-    const postData = await Fetch(api.post_get_my);
+    const pid_user = JSON.parse(sessionStorage.userData).user.pid_user;
+    const query = `?seq=0&interval=100&pid_target=${pid_user}`;
+    const postData = await Fetch(api.post_get_seq_public_user,query);
+    console.log(postData)
     this.setState({
       postList: postData
     })

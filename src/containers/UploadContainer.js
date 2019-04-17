@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { PROJECT_NAME, SERVER_URL } from "common/Constants";
 import FireAuthUser from "api/FireAuthUser";
 import { storageAvailable, getItem } from 'common/StorageUtils';
@@ -27,22 +28,31 @@ class UploadContainer extends Component {
     })
   }
 
-  insertPost = async(desc,tag) => {
+  uploadPost = async(desc,tag) => {
     const isStorage = storageAvailable();
     if(!isStorage) return null;
+
+    const userData = getItem('userData');
+    const pid_user = userData.user.pid_user;
     
     const bodyData = {
-      desc: desc,
-      tag: tag
+      post: {
+        pid_user: pid_user,
+        title: 'none',
+        desc: desc,
+        tag_string: tag,
+        uri_json: '{"location": "https://instagram-sample.s3.ap-northeast-2.amazonaws.com/list/m_run_fin.png"}'
+      }
     }
     const api = getItem('RestAPI');
-    console.log(api)
-    const res = await Fetch(api.post_insert,bodyData);
-    console.log(res)
+    await Fetch(api.post_insert,'',bodyData);
+    alert("게시물이 등록되었습니다.");
+    const { history } = this.props;
+    history.push('/home');
   }
   
   render() {
-    const { handleChange, insertPost } = this;
+    const { handleChange, uploadPost } = this;
     const { desc, tag } = this.state;
 
     return (
@@ -50,10 +60,10 @@ class UploadContainer extends Component {
         desc={desc}
         tag={tag}
         handleChange={handleChange}
-        insertPost={insertPost}
+        uploadPost={uploadPost}
       />
     );
   }
 }
 
-export default UploadContainer;
+export default withRouter(UploadContainer);
