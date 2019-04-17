@@ -1,10 +1,10 @@
 import React from 'react';
 import './PostList.scss';
-import PostItem from '../PostItem';
+import PostItemContainer from 'containers/PostItemContainer';
 
 const PostList = ({postList,getComment}) => {
   const posts = (postList||[]).map(post => {
-    return <PostItem
+    return <PostItemContainer
               key={post.pid_post}
               post={post}
               getComment={getComment}
