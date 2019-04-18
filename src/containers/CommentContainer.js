@@ -72,7 +72,7 @@ class CommentContainer extends Component {
 
   render() {
     const { commentList, comment } = this.state;
-    const { handleBack,insertComment,handleChange } = this;
+    const { handleBack,insertComment,handleChange,getComment } = this;
     console.log("commentContainer rendering")
     return (
       <CommentList
@@ -81,6 +81,7 @@ class CommentContainer extends Component {
         handleBack={handleBack}
         insertComment={insertComment}
         handleChange={handleChange}
+        getComment={getComment}
       />
     );
   }
