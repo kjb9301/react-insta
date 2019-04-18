@@ -8,7 +8,8 @@ import CommentList from 'components/comment/CommentList';
 class CommentContainer extends Component {
 
   state = {
-    commentList: []
+    commentList: [],
+    comment: ''
   }
 
   getComment = async() => {
@@ -24,6 +25,42 @@ class CommentContainer extends Component {
     })
   }
 
+  handleChange = (e) => {
+    this.setState({
+      comment: e.target.value
+    })
+  }
+
+  insertComment = async() => {
+    const { comment } = this.state;
+    if(!comment) return alert("댓글을 입력하세요.");
+
+    const { match } = this.props;
+    const post_id = match.params.id;
+    const userData = getItem('userData');
+    const user_id = userData.user.pid_user;
+    const user_name = userData.user.user_name;
+
+    const bodyData = {
+      post_cmt: {
+        pid_user: user_id,
+        user_name: user_name,
+        pid_parent: post_id,
+        body: comment
+      }
+    }
+
+    const api = getItem('RestAPI');
+    try{
+      await Fetch(api.post_cmt_insert,'',bodyData);
+      alert("댓글이 등록되었습니다.");
+      this.setState({comment: ''})
+      this.getComment();
+    }catch(err){
+      console.log("erorr",err);
+    }
+  }
+
   handleBack = () => {
     const { history } = this.props;
     history.goBack();
@@ -34,13 +71,16 @@ class CommentContainer extends Component {
   }
 
   render() {
-    const { commentList } = this.state;
-    const { handleBack } = this;
-
+    const { commentList, comment } = this.state;
+    const { handleBack,insertComment,handleChange } = this;
+    console.log("commentContainer rendering")
     return (
       <CommentList
         commentList={commentList}
+        comment={comment}
         handleBack={handleBack}
+        insertComment={insertComment}
+        handleChange={handleChange}
       />
     );
   }

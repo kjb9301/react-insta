@@ -3,7 +3,7 @@ import './CommentList.scss';
 import backImg from 'images/back.png';
 import CommentItem from 'components/comment/CommentItem';
 
-const CommentList = ({commentList,handleBack}) => {
+const CommentList = ({commentList,comment,handleBack,insertComment,handleChange}) => {
   console.log(commentList)
   const comments = commentList.map(comment => {
     return (<CommentItem
@@ -31,10 +31,10 @@ const CommentList = ({commentList,handleBack}) => {
       </div>
       <div className="comment-footer">
         <div className="footer-left">
-          <input type="text" name="comment" placeholder="댓글 달기..."/>
+          <input type="text" name="comment" value={comment} placeholder="댓글 달기..." onChange={handleChange}/>
         </div>
         <div className="footer-right">
-          <span>send</span>
+          <span onClick={insertComment}>send</span>
         </div>
       </div>
     </div>

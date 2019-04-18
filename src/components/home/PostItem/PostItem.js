@@ -2,7 +2,7 @@ import React from 'react';
 import './PostItem.scss';
 import item_img from 'images/item.jpg';
 
-const PostItem = ({post,likeOn,getComment,handleLike}) => {
+const PostItem = ({post,likeOn,getComment,handleLike,handleLikeOn,handleLikeOff}) => {
   const likeOnClass = likeOn? "likeOn": "icon-like";
   const {pid_post,pid_user,desc, tag_string, title } = post;
   return (
@@ -28,7 +28,7 @@ const PostItem = ({post,likeOn,getComment,handleLike}) => {
       </div>
       <div className="item-content">
         <div className="item-icon">
-          <div className={likeOnClass} onClick={() => handleLike(pid_user,pid_post)}></div>
+          <div className={likeOnClass} onClick={handleLike}></div>
           <div className="icon-comment"></div>
         </div>
         <div className="item-title">{title}</div>
