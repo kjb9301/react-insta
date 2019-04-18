@@ -25,19 +25,19 @@ class HomeContainer extends Component {
     const isStorage = storageAvailable();
     if(!isStorage) return null;
     const api = getItem('RestAPI');
-    console.log(api)
     const pid_user = JSON.parse(sessionStorage.userData).user.pid_user;
-    const query = `?seq=0&interval=10&pid_target=${pid_user}`;
-    const postData = await Fetch(api.post_get_seq_public_user,query);
-    
+    const query = "?seq=0&interval=10";
+    const postData = await Fetch(api.post_get_seq,query);
+    const postList = postData.filter(post => post.pid_user !== pid_user);
+
     this.setState({
-      postList: postData
+      postList: postList
     })
   }
 
   getComment = (id) => {
     const { history } = this.props;
-    history.push(`/comment/${id}`)
+    history.push(`/comment/${id}`);
   }
 
   componentDidMount(){

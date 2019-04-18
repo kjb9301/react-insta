@@ -3,7 +3,6 @@ import './PostItem.scss';
 import item_img from 'images/item.jpg';
 
 const PostItem = ({post,likeOn,getComment,handleLike}) => {
-  console.log(post)
   const likeOnClass = likeOn? "likeOn": "icon-like";
   const {pid_post,pid_user,desc, tag_string, title } = post;
   return (
