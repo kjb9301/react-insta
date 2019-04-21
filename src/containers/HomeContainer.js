@@ -29,7 +29,7 @@ class HomeContainer extends Component {
     const query = "?seq=0&interval=10";
     const postData = await Fetch(api.post_get_seq,query);
     const postList = postData.filter(post => post.pid_user !== pid_user);
-
+    
     this.setState({
       postList: postList
     })

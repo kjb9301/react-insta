@@ -1,0 +1,54 @@
+.follow-box {
+  border: 1px solid gray;
+  height: 50px;
+  margin: 1px;
+  display: flex;
+
+  .follow-left, .follow-center, .follow-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .follow-left {
+    flex: .3;
+
+    .follow-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #e0e0e0;
+    }
+  }
+
+  .follow-center {
+    flex: 1;
+
+    .follow-user {
+      width: 90%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .follow-right {
+    flex: .5;
+
+    .follow-btn {
+      width: 80%;
+      height: 50%;
+
+      button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+        background: none;
+        background-color: rgb(173, 179, 176);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

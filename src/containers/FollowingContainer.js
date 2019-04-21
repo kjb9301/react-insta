@@ -15,6 +15,9 @@ class FollowingContainer extends Component {
     if(!isStorage) return null;
     const api = getItem('RestAPI');
     const followingData = await Fetch(api.follow_get_my);
+    const query = '?seq=0&interval=10'
+    const userData = await Fetch(api.user_get_seq,query);
+    console.log(userData)
     this.setState({
       followingList: followingData
     })

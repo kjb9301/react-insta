@@ -1,10 +1,11 @@
 import React from 'react';
 import './FollowingList.scss';
 import FollowingItem from 'components/activity/FollowingItem';
+import FollowingItemContainer from 'containers/FollowingItemContainer';
 
 const FollowingList = ({followingList}) => {
   const followings = followingList.map(following => {
-    return <FollowingItem
+    return <FollowingItemContainer
               key={following.pid_follow}
               following={following}
             />

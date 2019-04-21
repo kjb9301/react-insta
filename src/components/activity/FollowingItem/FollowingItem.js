@@ -1,7 +1,8 @@
 import React from 'react';
 import './FollowingItem.scss';
 
-const FollowingItem = ({following}) => {
+const FollowingItem = ({following,deleteFollow}) => {
+  console.log(following)
   return (
     <div className="following-box">
       <div className="following-left">
@@ -14,7 +15,7 @@ const FollowingItem = ({following}) => {
       </div>
       <div className="following-right">
         <div className="following-btn">
-          <button>팔로잉</button>
+          <button onClick={() => deleteFollow(following.pid_follow)}>팔로우 취소</button>
         </div>
       </div>
     </div>

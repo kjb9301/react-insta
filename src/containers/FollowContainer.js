@@ -3,7 +3,13 @@ import Follow from 'components/activity/Follow';
 
 class FollowContainer extends Component {
   state = {
-    followTF: true
+    followTF: false
+  }
+
+  handleFollow = () => {
+    this.setState({
+      followTF: false
+    })
   }
 
   handleFollowing = () => {
@@ -12,20 +18,14 @@ class FollowContainer extends Component {
     })
   }
 
-  handleFollower = () => {
-    this.setState({
-      followTF: false
-    })
-  }
-
   render() {
-    const { handleFollowing, handleFollower } = this;
+    const { handleFollow, handleFollowing } = this;
     const { followTF } = this.state;
     return (
       <Follow
         followTF={followTF}
         handleFollowing={handleFollowing}
-        handleFollower={handleFollower}
+        handleFollow={handleFollow}
       />
     );
   }
