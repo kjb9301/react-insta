@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Fetch from 'common/Fetch';
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 
 import CommentItem from 'components/comment/CommentItem';
 

@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { PROJECT_NAME, SERVER_URL } from "common/Constants";
-import FireAuthUser from "api/FireAuthUser";
 import Fetch from 'common/Fetch';
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 
 import PostList from 'components/home/PostList';
 
 class HomeContainer extends Component {
-  constructor(props){
-    super(props);
-
-    this.userManager = new FireAuthUser(
-      SERVER_URL,
-      PROJECT_NAME,
-    );
-  }
 
   state = {
     postList: []
   }
 
   getPost = async () => {
-    const isStorage = storageAvailable();
-    if(!isStorage) return null;
     const api = getItem('RestAPI');
     const pid_user = JSON.parse(sessionStorage.userData).user.pid_user;
     const query = "?seq=0&interval=10";

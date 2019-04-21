@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Fetch from 'common/Fetch';
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 import FollowingItem from 'components/activity/FollowingItem';
 
 class FollowingItemContainer extends Component {
@@ -15,10 +15,14 @@ class FollowingItemContainer extends Component {
         pid_follow: follow_id
       }
     }
-
-    await Fetch(api.follow_delete,'',bodyData);
-    alert("팔로우 취소되었습니다.");
+    try{
+      await Fetch(api.follow_delete,'',bodyData);
+      alert("팔로우 취소되었습니다.");
+    }catch(err){
+      console.log("deleteFollow error", err);
+    }
   }
+  
   render() {
     const { following } = this.props;
     const { deleteFollow } = this;

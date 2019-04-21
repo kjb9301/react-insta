@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Fetch from 'common/Fetch';
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 
 import CommentList from 'components/comment/CommentList';
 
@@ -13,16 +13,18 @@ class CommentContainer extends Component {
   }
 
   getComment = async() => {
-    const isStorage = storageAvailable();
-    if(!isStorage) return null;
     const { match } = this.props;
     const api = getItem('RestAPI');
     const query = `?pid=${match.params.id}`;
-    const commentData = await Fetch(api.post_get_comment,query);
-    if(commentData.post_cmt.code === "data/no_data") return null;
-    this.setState({
-      commentList: commentData.post_cmt
-    })
+    try{
+      const commentData = await Fetch(api.post_get_comment,query);
+      if(commentData.post_cmt.code === "data/no_data") return null;
+      this.setState({
+        commentList: commentData.post_cmt
+      })
+    }catch(err){
+      console.log("getComment error", err);
+    }
   }
 
   handleChange = (e) => {
@@ -57,7 +59,7 @@ class CommentContainer extends Component {
       this.setState({comment: ''})
       this.getComment();
     }catch(err){
-      console.log("erorr",err);
+      console.log("insertComment erorr", err);
     }
   }
 
@@ -73,7 +75,6 @@ class CommentContainer extends Component {
   render() {
     const { commentList, comment } = this.state;
     const { handleBack,insertComment,handleChange,getComment } = this;
-    console.log("commentContainer rendering")
     return (
       <CommentList
         commentList={commentList}

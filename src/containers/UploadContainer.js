@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { PROJECT_NAME, SERVER_URL } from "common/Constants";
-import FireAuthUser from "api/FireAuthUser";
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 import Fetch from 'common/Fetch';
 
 import Upload from 'components/upload/Upload';
 
 class UploadContainer extends Component {
-  constructor(props){
-    super(props);
-
-    this.userManager = new FireAuthUser(
-      SERVER_URL,
-      PROJECT_NAME,
-    );
-  }
 
   state = {
     desc: '',
@@ -29,9 +19,6 @@ class UploadContainer extends Component {
   }
 
   uploadPost = async(desc,tag) => {
-    const isStorage = storageAvailable();
-    if(!isStorage) return null;
-
     const userData = getItem('userData');
     const pid_user = userData.user.pid_user;
     
@@ -45,11 +32,34 @@ class UploadContainer extends Component {
       }
     }
     const api = getItem('RestAPI');
-    await Fetch(api.post_insert,'',bodyData);
-    alert("게시물이 등록되었습니다.");
-    const { history } = this.props;
-    history.push('/home');
+    try{
+      const post_id = await Fetch(api.post_insert,'',bodyData);
+      const tagInfo = {post_id,pid_user,tag};
+      alert("게시물이 등록되었습니다.");
+      //this.insertTag(tagInfo);
+      const { history } = this.props;
+      history.push('/home');
+    }catch(err){
+      console.log("uploadPost error",err);
+    }
   }
+
+  // insertTag = async(tagInfo) => {
+  //   const { post_id, pid_user, tag } = tagInfo;
+  //   const bodyData = {
+  //     body: {
+  //       keyword: "다시||태그",
+  //       uri_tag: "none"
+  //     }
+  //   }
+  //   const api = getItem('RestAPI');
+  //   console.log(api)
+  //   try{
+  //     await Fetch(api.tag_tag_insert,'',bodyData);
+  //   }catch(err){
+  //     console.log("insertTag error", err);
+  //   }
+  // }
   
   render() {
     const { handleChange, uploadPost } = this;

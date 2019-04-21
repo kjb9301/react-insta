@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Fetch from 'common/Fetch';
-import { storageAvailable, getItem } from 'common/StorageUtils';
+import { getItem } from 'common/StorageUtils';
 import FollowList from 'components/activity/FollowList';
 
 class FollowerContainer extends Component {
@@ -10,10 +10,7 @@ class FollowerContainer extends Component {
   }
 
   getUser = async () => {
-    const isStorage = storageAvailable();
-    if(!isStorage) return null;
     const api = getItem('RestAPI');
-    console.log(api)
     const userData = getItem('userData');
 		const pid_user = userData.user.pid_user;
     const query = "?seq=0&interval=10";
