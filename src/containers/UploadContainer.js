@@ -35,7 +35,6 @@ class UploadContainer extends Component {
       const post_id = await Fetch(api.post_insert,'',bodyData);
       const tagInfo = {post_id,pid_user,tag};
       this.insertTag(tagInfo);
-      return;
       alert("게시물이 등록되었습니다.");
       const { history } = this.props;
       history.push('/home');
@@ -46,15 +45,16 @@ class UploadContainer extends Component {
 
   insertTag = async(tagInfo) => {
     const { post_id, pid_user, tag } = tagInfo;
-    console.log(tagInfo)
+    let tag_string = (tag[0] === "#"? tag.substring(1,tag.length) : tag);
+    tag_string = tag_string.replace(/#/gi, "||");
+
     const body = {
       typ_item: 1,
-      tag_string: "[태그]||[태그1}||",
       pid_user: pid_user,
-      pid_post: post_id
+      pid_post: post_id,
+      tag_string: tag_string
     }
     const api = getItem('RestAPI');
-    console.log(api)
     try{
       await Fetch(api.tag_tag_insert,'',body);
     }catch(err){
