@@ -12,7 +12,7 @@ const Upload = ({desc,tag,handleChange,uploadPost}) => {
       <div className="upload-content">
         <div className="content-box">
           <div className="content-btn">
-            <input type="file"/>
+            <input type="file" name="image"/>
           </div>
           <div className="content-desc">
             <textarea name="desc" value={desc} placeholder="description" onChange={handleChange}/>

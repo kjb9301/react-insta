@@ -9,7 +9,7 @@ class UploadContainer extends Component {
 
   state = {
     desc: '',
-    tag: ''
+    tag: '',
   }
 
   handleChange = (e) => {
@@ -21,7 +21,6 @@ class UploadContainer extends Component {
   uploadPost = async(desc,tag) => {
     const userData = getItem('userData');
     const pid_user = userData.user.pid_user;
-    
     const bodyData = {
       post: {
         pid_user: pid_user,
@@ -35,8 +34,9 @@ class UploadContainer extends Component {
     try{
       const post_id = await Fetch(api.post_insert,'',bodyData);
       const tagInfo = {post_id,pid_user,tag};
+      this.insertTag(tagInfo);
+      return;
       alert("게시물이 등록되었습니다.");
-      //this.insertTag(tagInfo);
       const { history } = this.props;
       history.push('/home');
     }catch(err){
@@ -44,22 +44,23 @@ class UploadContainer extends Component {
     }
   }
 
-  // insertTag = async(tagInfo) => {
-  //   const { post_id, pid_user, tag } = tagInfo;
-  //   const bodyData = {
-  //     body: {
-  //       keyword: "다시||태그",
-  //       uri_tag: "none"
-  //     }
-  //   }
-  //   const api = getItem('RestAPI');
-  //   console.log(api)
-  //   try{
-  //     await Fetch(api.tag_tag_insert,'',bodyData);
-  //   }catch(err){
-  //     console.log("insertTag error", err);
-  //   }
-  // }
+  insertTag = async(tagInfo) => {
+    const { post_id, pid_user, tag } = tagInfo;
+    console.log(tagInfo)
+    const body = {
+      typ_item: 1,
+      tag_string: "[태그]||[태그1}||",
+      pid_user: pid_user,
+      pid_post: post_id
+    }
+    const api = getItem('RestAPI');
+    console.log(api)
+    try{
+      await Fetch(api.tag_tag_insert,'',body);
+    }catch(err){
+      console.log("insertTag error", err);
+    }
+  }
   
   render() {
     const { handleChange, uploadPost } = this;

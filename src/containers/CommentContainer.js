@@ -15,6 +15,7 @@ class CommentContainer extends Component {
   getComment = async() => {
     const { match } = this.props;
     const api = getItem('RestAPI');
+    console.log(api)
     const query = `?pid=${match.params.id}`;
     try{
       const commentData = await Fetch(api.post_get_comment,query);
