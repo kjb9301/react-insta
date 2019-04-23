@@ -1,6 +1,6 @@
 import React from 'react';
 import PageTemplate from 'components/common/PageTemplate';
-import RegContainer from 'containers/RegContainer';
+import RegContainer from 'containers/register/RegContainer';
 
 const RegPage = () => {
   return (

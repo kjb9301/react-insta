@@ -27,7 +27,7 @@ class RegContainer extends Component {
     })
   }
 
-  handleRegClick = async (nickname,id,pw) => {
+  handleRegister = async (nickname,id,pw) => {
     try {
       const bodyData = {
         user: {
@@ -50,19 +50,19 @@ class RegContainer extends Component {
         alert("회원가입에 실패하였습니다. 다시 시도해 주시기 바랍니다.");
       }
     } catch (err) {
-      console.log('Register Error', err);
+      console.log('handleRegister Error', err);
     }
   }
 
   render() {
-    const { handleChange, handleRegClick } = this;
+    const { handleChange, handleRegister } = this;
     const { nickname, email, pwd } = this.state;
     const regInfo = {nickname,email,pwd};
     return (
       <Register
         regInfo={regInfo}
         handleChange={handleChange}
-        handleRegClick={handleRegClick}
+        handleRegister={handleRegister}
       />
     );
   }

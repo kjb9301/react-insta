@@ -28,7 +28,7 @@ class LoginContainer extends Component {
     })
   }
 
-  handleLoginClick = async (email,pwd) => {
+  handleLogin = async (email,pwd) => {
     try {
       const res = await this.userManager.login(email, pwd);
       if(res.status === undefined){
@@ -38,17 +38,21 @@ class LoginContainer extends Component {
         alert("로그인에 실패하였습니다. 다시 시도하시기 바랍니다.");
       }
     } catch (err) {
-      console.log('Login Error', err);
+      console.log('handleLogin Error', err);
     }
   }
 
   getRestAPI = async () => {
-    const res = await RestAPI();
-    if(!res) return null;
+    try{
+      const res = await RestAPI();
+      if(!res) return null;
 
-    this.setState({
-       isLoaded: true,
-    });
+      this.setState({
+        isLoaded: true,
+      });
+    }catch(err){
+      console.log("getRestAPI Error", err);
+    }
   }
 
   componentDidMount() {
@@ -56,7 +60,7 @@ class LoginContainer extends Component {
   }
   
   render() {
-    const { handleChange, handleLoginClick } = this;
+    const { handleChange, handleLogin } = this;
     const { email,pwd,isLoaded } = this.state;
     const loginInfo = {email,pwd};
     
@@ -66,7 +70,7 @@ class LoginContainer extends Component {
       <Login
         loginInfo={loginInfo}
         handleChange={handleChange}
-        handleLoginClick={handleLoginClick}
+        handleLogin={handleLogin}
       />
     );
   }
