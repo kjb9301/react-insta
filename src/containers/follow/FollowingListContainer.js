@@ -4,7 +4,7 @@ import { getItem } from 'common/StorageUtils';
 
 import FollowingList from 'components/activity/FollowingList';
 
-class FollowingContainer extends Component {
+class FollowingListContainer extends Component {
 
   state = {
     followingList: []
@@ -13,9 +13,6 @@ class FollowingContainer extends Component {
   getFollowing = async() => {
     const api = getItem('RestAPI');
     const followingData = await Fetch(api.follow_get_my);
-    const query = '?seq=0&interval=10'
-    const userData = await Fetch(api.user_get_seq,query);
-    
     this.setState({
       followingList: followingData
     })
@@ -26,11 +23,14 @@ class FollowingContainer extends Component {
   }
 
   render() {
+    console.log("followingListContainer render")
     const { followingList } = this.state;
     return (
-      <FollowingList followingList={followingList}/>
+      <FollowingList
+        followingList={followingList}
+      />
     );
   }
 }
 
-export default FollowingContainer;
+export default FollowingListContainer;

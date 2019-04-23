@@ -13,7 +13,7 @@ const Footer = () => {
       <div><Link to="/home"><img src={home} alt="home"/></Link></div>
       <div><Link to="/search"><img src={search} alt="search"/></Link></div>
       <div><Link to="/upload"><img src={upload} alt="upload"/></Link></div>
-      <div><Link to="/activity"><img src={activity} alt="activity"/></Link></div>
+      <div><Link to="/follow"><img src={activity} alt="activity"/></Link></div>
       <div><Link to="/profile"><img src={profile} alt="profile"/></Link></div>
     </div>
   );

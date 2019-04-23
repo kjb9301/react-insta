@@ -4,6 +4,7 @@ import { getItem } from 'common/StorageUtils';
 import FollowingItem from 'components/activity/FollowingItem';
 
 class FollowingItemContainer extends Component {
+
   deleteFollow = async(follow_id) => {
     const api = getItem('RestAPI');
     const userData = getItem('userData');
@@ -24,10 +25,14 @@ class FollowingItemContainer extends Component {
   }
   
   render() {
+    console.log("followingItemContainer render")
     const { following } = this.props;
     const { deleteFollow } = this;
     return (
-      <FollowingItem following={following} deleteFollow={deleteFollow}/>
+      <FollowingItem
+        following={following}
+        deleteFollow={deleteFollow}
+      />
     );
   }
 }

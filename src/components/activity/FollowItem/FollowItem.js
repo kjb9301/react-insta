@@ -2,7 +2,7 @@ import React from 'react';
 import './FollowItem.scss';
 
 const FollowItem = ({follow,doFollow}) => {
-  console.log(follow)
+  console.log("followItem render")
   return (
     <div className="follow-box">
       <div className="follow-left">

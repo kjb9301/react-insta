@@ -2,7 +2,7 @@ import React from 'react';
 import './FollowingItem.scss';
 
 const FollowingItem = ({following,deleteFollow}) => {
-  console.log(following)
+  console.log("followingItem render")
   return (
     <div className="following-box">
       <div className="following-left">

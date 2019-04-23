@@ -9,9 +9,7 @@ const PageTemplate = ({children}) => {
     {
       !isStorage?
       <Fragment>
-        <div className="header">
-          
-        </div>
+        <div className="header"></div>
         <section>
           {children}
         </section>

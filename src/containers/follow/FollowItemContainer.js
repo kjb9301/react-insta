@@ -5,6 +5,7 @@ import { getItem } from 'common/StorageUtils';
 import FollowItem from 'components/activity/FollowItem';
 
 class FollowItemContainer extends Component {
+
   doFollow = async(to_user_id) => {
     const api = getItem('RestAPI');
     const userData = getItem('userData');
@@ -19,15 +20,19 @@ class FollowItemContainer extends Component {
     try{
       await Fetch(api.follow_do_follow,'',bodyData);
     }catch(err){
-      console.log("doFollow error", err);
+      console.log("doFollow Error", err);
     }
   }
 
   render() {
+    console.log("followItemContainer render")
     const { follow } = this.props;
     const { doFollow } = this;
     return (
-      <FollowItem follow={follow} doFollow={doFollow}/>
+      <FollowItem
+        follow={follow}
+        doFollow={doFollow}
+      />
     );
   }
 }

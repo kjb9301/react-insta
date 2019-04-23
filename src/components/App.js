@@ -13,7 +13,7 @@ class App extends Component {
           <Route path="/home" component={HomePage}/>
           <Route path="/search" component={SearchPage}/>
           <Route path="/upload" component={UploadPage}/>
-          <Route path="/activity" component={FollowPage}/>
+          <Route path="/follow" component={FollowPage}/>
           <Route path="/profile" component={ProfilePage}/>
           <Route path="/comment/:id" component={CommentPage}/>
         </Switch>

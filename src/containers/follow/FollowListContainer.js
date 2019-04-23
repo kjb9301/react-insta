@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Fetch from 'common/Fetch';
 import { getItem } from 'common/StorageUtils';
+
 import FollowList from 'components/activity/FollowList';
 
-class FollowerContainer extends Component {
+class FollowListContainer extends Component {
 
   state = {
     followList: []
@@ -29,12 +30,14 @@ class FollowerContainer extends Component {
   }
 
   render() {
+    console.log("followListcontainer render")
     const { followList } = this.state;
-    console.log(followList)
     return (
-      <FollowList followList={followList}/>
+      <FollowList
+        followList={followList}
+      />
     );
   }
 }
 
-export default FollowerContainer;
+export default FollowListContainer;
