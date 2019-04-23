@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentContainer from 'containers/CommentContainer';
+import CommentContainer from 'containers/comment/CommentContainer';
 
 const CommentPage = () => {
   return (

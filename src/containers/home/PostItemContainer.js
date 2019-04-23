@@ -70,7 +70,6 @@ class PostItemContainer extends Component {
 		const { post, getComment } = this.props;
 		const { likeOn } = this.state;
 		const { handleLike } = this;
-
     return (
 			<PostItem
 				post={post}

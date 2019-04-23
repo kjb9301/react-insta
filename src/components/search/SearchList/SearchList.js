@@ -3,11 +3,10 @@ import './SearchList.scss';
 import SearchItem from '../SearchItem';
 
 const SearchList = ({search,tagList,handleChange}) => {
-  console.log("SearchList")
   const tags = tagList.map(tag => {
     console.log(tag)
     return (
-      <SearchItem />
+      <SearchItem/>
     )
   })
   return (

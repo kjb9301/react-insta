@@ -1,10 +1,9 @@
 import React from 'react';
 import './CommentList.scss';
 import backImg from 'images/back.png';
-import CommentItemContainer from 'containers/CommentItemContainer';
+import CommentItemContainer from 'containers/comment/CommentItemContainer';
 
 const CommentList = ({commentList,comment,handleBack,insertComment,handleChange,getComment}) => {
-  console.log(commentList)
   const comments = commentList.map(comment => {
     return (<CommentItemContainer
               key={comment.pid_post_cmt}

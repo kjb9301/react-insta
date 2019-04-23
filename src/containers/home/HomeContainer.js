@@ -6,7 +6,6 @@ import { getItem } from 'common/StorageUtils';
 import PostList from 'components/home/PostList';
 
 class HomeContainer extends Component {
-
   state = {
     postList: []
   }
@@ -15,12 +14,15 @@ class HomeContainer extends Component {
     const api = getItem('RestAPI');
     const pid_user = JSON.parse(sessionStorage.userData).user.pid_user;
     const query = "?seq=0&interval=30";
-    const postData = await Fetch(api.post_get_seq,query);
-    const postList = postData.filter(post => post.pid_user !== pid_user);
-    
-    this.setState({
-      postList: postList
-    })
+    try{
+      const postData = await Fetch(api.post_get_seq,query);
+      const postList = postData.filter(post => post.pid_user !== pid_user);
+      this.setState({
+        postList: postList
+      })
+    }catch(err){
+      console.log("getPost error", err);
+    }
   }
 
   getComment = (id) => {
@@ -32,11 +34,18 @@ class HomeContainer extends Component {
     this.getPost();
   }
 
+  shouldComponentUpdate(nextProps,nextState){
+    return this.state.postList !== nextState.postList
+  }
+
   render() {
     const { postList } = this.state;
     const { getComment } = this;
     return (
-      <PostList postList={postList} getComment={getComment}/>
+      <PostList
+        postList={postList}
+        getComment={getComment}
+      />
     );
   }
 }

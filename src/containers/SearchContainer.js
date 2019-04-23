@@ -20,7 +20,7 @@ class SearchContainer extends Component {
     const api = getItem('RestAPI');
     const userData = getItem('userData');
     const user_id = userData.user.pid_user;
-    const query = `?seq=0&interval=10&pid_user=${user_id}&pid_tag=1`;
+    const query = `?seq=0&interval=30&pid_user=${user_id}&pid_tag=7`;
     try{
       const tagList = await Fetch(api.tag_get_tag_by_user,query);
       this.setState({
@@ -36,11 +36,14 @@ class SearchContainer extends Component {
   }
 
   render() {
-    console.log('searchContainer')
     const { handleChange } = this;
     const { search, tagList } = this.state;
     return (
-      <SearchList search={search} tagList={tagList} handleChange={handleChange}/>
+      <SearchList
+        search={search}
+        tagList={tagList}
+        handleChange={handleChange}
+      />
     );
   }
 }

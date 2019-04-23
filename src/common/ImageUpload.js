@@ -7,18 +7,17 @@ const ImageUpload = async (originalImage, directory) => {
   try {
     const uploadedResults = [];
     for(let image of originalImage) {     
-
       aws.config.region = "ap-northeast-2";
       aws.config.update({
-        accessKeyId: "AKIAIT6AJBVJWA3QE2GA",
-        secretAccessKey: "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"
+        accessKeyId: "",
+        secretAccessKey: ""
       })
-      console.log(image)
+
       const params = {
         Bucket: 'fiftybridge-insta/' + directory,
         Key: 'fiftybridge-insta' + image.name,
         ACL: 'public-read',
-        Body: require('fs').createReadStream(image.path)
+        Body: ''
       }
 
       const result = await s3.upload(params).promise();

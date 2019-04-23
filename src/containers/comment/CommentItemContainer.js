@@ -70,7 +70,6 @@ class CommentItemContainer extends Component {
     }
 
     const api = getItem('RestAPI');
-    console.log(api)
     try{
       await Fetch(api.post_cmt_delete,'',bodyData);
       alert("댓글이 삭제되었습니다.");
@@ -78,6 +77,10 @@ class CommentItemContainer extends Component {
     }catch(err){
       console.log("erorr",err);
     }
+  }
+
+  shouldComponentUpdate(nextProps,nextState){
+    return this.state !== nextState
   }
 
   render() {
