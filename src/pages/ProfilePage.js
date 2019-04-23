@@ -1,6 +1,6 @@
 import React from 'react';
 import PageTemplate from 'components/common/PageTemplate';
-import ProfileContainer from 'containers/ProfileContainer';
+import ProfileContainer from 'containers/profile/ProfileContainer';
 
 const ProfilePage = () => {
   return (

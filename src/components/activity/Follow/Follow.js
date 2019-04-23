@@ -4,7 +4,6 @@ import FollowingContainer from 'containers/follow/FollowingListContainer';
 import FollowerContainer from 'containers/follow/FollowListContainer';
 
 const Follow = ({followTF,handleFollowing,handleFollow}) => {
-  console.log("follow render")
   return (
     <div className="follow-wrapper">
       <div className="follow-header">

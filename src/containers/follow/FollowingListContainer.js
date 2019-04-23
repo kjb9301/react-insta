@@ -27,7 +27,6 @@ class FollowingListContainer extends Component {
   }
 
   render() {
-    console.log("followingListContainer render")
     const { followingList } = this.state;
     return (
       <FollowingList

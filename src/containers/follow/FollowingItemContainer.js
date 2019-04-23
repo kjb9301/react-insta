@@ -25,7 +25,6 @@ class FollowingItemContainer extends Component {
   }
   
   render() {
-    console.log("followingItemContainer render")
     const { following } = this.props;
     const { deleteFollow } = this;
     return (

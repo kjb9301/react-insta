@@ -38,7 +38,6 @@ class FollowListContainer extends Component {
   }
 
   render() {
-    console.log("followListcontainer render")
     const { followList } = this.state;
     return (
       <FollowList

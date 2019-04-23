@@ -3,7 +3,6 @@ import './FollowingList.scss';
 import FollowingItemContainer from 'containers/follow/FollowingItemContainer';
 
 const FollowingList = ({followingList}) => {
-  console.log("followingList render")
   const followings = followingList.map(following => {
     return <FollowingItemContainer
               key={following.pid_follow}

@@ -20,7 +20,6 @@ class FollowContainer extends Component {
   }
 
   render() {
-    console.log("followContainer render")
     const { handleFollow, handleFollowing } = this;
     const { followTF } = this.state;
     return (

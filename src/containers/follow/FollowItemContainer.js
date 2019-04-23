@@ -25,7 +25,6 @@ class FollowItemContainer extends Component {
   }
 
   render() {
-    console.log("followItemContainer render")
     const { follow } = this.props;
     const { doFollow } = this;
     return (
