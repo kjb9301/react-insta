@@ -15,14 +15,22 @@ class FollowListContainer extends Component {
     const userData = getItem('userData');
 		const pid_user = userData.user.pid_user;
     const query = "?seq=0&interval=10";
-    const allUser = await Fetch(api.user_get_seq,query);
-    const userList = allUser.filter(user => user.pid_user !== pid_user);
-    //const followingData = await Fetch(api.follow_get_my);
-    const followList = userList.filter(user => user.pid_user)
+    try{
+      let userList = await Fetch(api.user_get_seq,query);
+      userList = userList.filter(user => user.pid_user !== pid_user);
+      const followingData = await Fetch(api.follow_get_my);
+      let followList = [];
+      for(let i=0; i<followingData.length; i++){
+        const id = followingData[i].to_user;
+        followList = userList.filter(user => (user.pid_user !== id))
+      }
 
-    this.setState({
-      followList: followList
-    })
+      this.setState({
+        followList: followList
+      })
+    }catch(err){
+      console.log("getUser Error", err);
+    }
   }
 
   componentDidMount(){

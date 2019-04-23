@@ -12,10 +12,14 @@ class FollowingListContainer extends Component {
 
   getFollowing = async() => {
     const api = getItem('RestAPI');
-    const followingData = await Fetch(api.follow_get_my);
-    this.setState({
-      followingList: followingData
-    })
+    try{
+      const followingData = await Fetch(api.follow_get_my);
+      this.setState({
+        followingList: followingData
+      })
+    }catch(err){
+      console.log("getFollowing Error", err);
+    }
   }
 
   componentDidMount(){
